@@ -21,7 +21,7 @@ public:
     /**
      * Play MP3 file with streaming (memory efficient)
      * 
-     * @param filePath Path to MP3 file in SPIFFS
+     * @param filePath Path to MP3 file in SPIFFS/SD
      * @param volume Volume level (0.0 to 1.0)
      * @return true if playback started successfully
      */

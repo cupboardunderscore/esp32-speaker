@@ -61,6 +61,10 @@ bool MP3Decoder::decodeFile(const String& filePath, int16_t** pcmBuffer, size_t*
     
     // Open file from SPIFFS
     File file = SPIFFS.open(filePath, "r");
+    if (!file)
+    {
+        file = SD.open(filePath, "r");
+    }
     if (!file) {
         return false;
     }
@@ -209,6 +213,10 @@ bool MP3Decoder::getFileInfo(const String& filePath, MP3Info* info) {
     
     // Open file
     File file = SPIFFS.open(filePath, "r");
+    if (!file)
+    {
+        file = SD.open(filePath, "r");
+    }
     if (!file) {
         return false;
     }
@@ -288,6 +296,10 @@ bool MP3Decoder::startStreaming(const String& filePath, StreamCallback callback)
     
     // Open the file
     _streamFile = SPIFFS.open(filePath, "r");
+    if (!_streamFile)
+    {
+        _streamFile = SD.open(filePath, "r");
+    }
     if (!_streamFile) {
         return false;
     }
