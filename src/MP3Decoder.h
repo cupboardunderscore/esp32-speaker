@@ -3,6 +3,7 @@
 #include <Arduino.h>
 #include <SPIFFS.h>
 #include <functional>
+#include <SD.h>
 
 // Include the ESP32 Helix MP3 decoder library
 extern "C" {
@@ -40,8 +41,8 @@ public:
     bool init();
 
     /**
-     * Decode MP3 file from SPIFFS
-     * @param filePath Path to MP3 file in SPIFFS
+     * Decode MP3 file from SPIFFS/SD
+     * @param filePath Path to MP3 file in SPIFFS/SD
      * @param pcmBuffer Output buffer for PCM data (will be allocated)
      * @param pcmSize Output size of PCM data
      * @param info Output MP3 file information

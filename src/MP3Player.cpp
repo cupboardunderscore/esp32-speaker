@@ -150,7 +150,7 @@ bool MP3Player::streamingCallback(const int16_t* data, size_t sampleCount,
 }
 
 void MP3Player::applyVolume(int16_t* samples, size_t sampleCount, float volume) {
-    if (!samples || sampleCount == 0 || volume <= 0.0f) {
+    if (!samples || sampleCount == 0 || volume < 0.0f) {
         return;
     }
 
